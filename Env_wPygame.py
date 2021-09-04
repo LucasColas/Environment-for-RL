@@ -29,6 +29,9 @@ class Blob:
     #def __sub__(self, other):
         #return (self.x - other.x, self.y - other.y)
 
+    def collide(self, other):
+        if self.Rect
+
     def action(self, choice):
         if choice == 0:
             self.move(-self.Step,0)
@@ -78,5 +81,3 @@ class Blob:
 
     def draw(self, Win):
         pygame.draw.rect(Win, self.color, self.Rect)
-
-    
