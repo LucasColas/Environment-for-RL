@@ -23,11 +23,11 @@ class Blob:
 
 
 
-    def __str__(self):
-        return f"{self.x}, {self.y}"
+    #def __str__(self):
+        #return f"{self.x}, {self.y}"
 
-    def __sub__(self, other):
-        return (self.x - other.x, self.y - other.y)
+    #def __sub__(self, other):
+        #return (self.x - other.x, self.y - other.y)
 
     def action(self, choice):
         if choice == 0:
@@ -58,6 +58,9 @@ class Blob:
 
         self.checkBorders()
 
+        self.Rect.x = self.x
+        self.Rect.y = self.y
+
 
     def checkBorders(self):
         if self.x < 0:
@@ -74,4 +77,6 @@ class Blob:
 
 
     def draw(self, Win):
-        Win.blit(self.Rect, (self.x, self.y))
+        pygame.draw.rect(Win, self.color, self.Rect)
+
+    
