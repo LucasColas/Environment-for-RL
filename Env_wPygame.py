@@ -1,7 +1,15 @@
 import pygame
 import numpy as np
 
+import matplotlib.pyplot as plt
+
+pygame.init()
+
 WIN_Size = (600,600)
+
+pygame.display.set_caption("Environnement")
+Win = pygame.display.set_mode(WIN_Size)
+
 
 class Blob:
     def __init__(self, Size, Step, Length):
