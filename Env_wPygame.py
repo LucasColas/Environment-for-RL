@@ -35,7 +35,6 @@ class Blob:
     def info(self, other):
         return (self.x - other.x, self.y - other.y)
 
-
     def action(self, choice):
         if choice == 0:
             self.move(-self.Step,0)
