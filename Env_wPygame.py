@@ -12,13 +12,14 @@ Win = pygame.display.set_mode(WIN_Size)
 
 
 class Blob:
-    def __init__(self, Size, Step, Length):
+    def __init__(self, Color, Size, Step, Length):
         self.Size_x = Size[0]
         self.Size_y = Size[1]
         self.Step = Step
         self.Length = Length
         self.x = np.random.randint(0, self.Size_x)
         self.y = np.random.randint(0, self.Size_y)
+        self.Rect = pygame.Rect(self.x, self.y , self.Length, self.Length)
 
 
 
@@ -70,3 +71,7 @@ class Blob:
 
         if self.y > self.Size_y:
             self.y = self.Size_y - self.Length
+
+
+    def draw(self, Win):
+        Win.blit(self.Rect, (self.x, self.y))
