@@ -5,8 +5,11 @@ WIN_Size = (600,600)
 
 class Blob:
     def __init__(self, Size):
-        self.x = np.random.randint(0, Size)
-        self.y = np.random.randint(0, Size)
+        self.Size_x = Size[0]
+        self.Size_y = Size[1]
+        self.x = np.random.randint(0, self.Size_x)
+        self.y = np.random.randint(0, self.Size_y)
+
 
     def __str__(self):
         return f"{self.x}, {self.y}"
@@ -41,4 +44,8 @@ class Blob:
         else:
             self.y += y
 
+        self.checkBorders()
+
+
+    def checkBorders(self):
         
