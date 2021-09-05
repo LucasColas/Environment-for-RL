@@ -20,4 +20,4 @@ for x1 in range(0, WIN_Size[0]):
     for y1 in range(0, WIN_Size[1]):
         for x2 in range(0, WIN_Size[0]):
             for y2 in range(0, WIN_Size[1]):
-                
+                Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
