@@ -1,7 +1,7 @@
 import pygame
 import matplotlib.pyplot as plt
 
-Size = 20
+WIN_Size = (600, 600)
 
 Episodes = 30000
 Move_Penalty = 1
@@ -14,4 +14,6 @@ Eps_Decay_Reduc = 0.0001
 Lr = 0.1
 Gamma = 0.95
 
-Q_table = []
+Q_table = {}
+
+for x1 in range()
