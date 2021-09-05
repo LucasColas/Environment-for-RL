@@ -22,11 +22,11 @@ class Blob:
         self.Rect = pygame.Rect(self.x, self.y , self.Length, self.Length)
 
 
-    #def __str__(self):
-        #return f"{self.x}, {self.y}"
+    def __str__(self):
+        return f"{self.x}, {self.y}"
 
-    #def __sub__(self, other):
-        #return (self.x - other.x, self.y - other.y)
+    def __sub__(self, other):
+        return (self.x - other.x, self.y - other.y)
 
     def collide(self, other):
         if self.Rect.colliderect(other):
