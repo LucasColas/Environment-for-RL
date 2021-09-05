@@ -16,4 +16,8 @@ Gamma = 0.95
 
 Q_table = {}
 
-for x1 in range()
+for x1 in range(0, WIN_Size[0]):
+    for y1 in range(0, WIN_Size[1]):
+        for x2 in range(0, WIN_Size[0]):
+            for y2 in range(0, WIN_Size[1]):
+                

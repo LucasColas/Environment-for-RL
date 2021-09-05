@@ -51,13 +51,13 @@ class Blob:
 
     def move(self, x=False,y=False):
         if not x:
-            self.x += np.random.randint(-1,2)
+            self.x += np.random.randint(-self.Step,2*self.Step)
 
         else:
             self.x += x
 
         if not y:
-            self.y += np.random.randint(-1,2)
+            self.y += np.random.randint(-self.Step,2*self.Step)
 
         else:
             self.y += y
