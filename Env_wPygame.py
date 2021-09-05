@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 
 pygame.init()
 
-WIN_Size = (600,600)
-
 pygame.display.set_caption("Environnement")
 Win = pygame.display.set_mode(WIN_Size)
 

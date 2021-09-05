@@ -1,8 +1,6 @@
 import pygame
 import matplotlib.pyplot as plt
 
-WIN_Size = (600, 600)
-
 Episodes = 30000
 Move_Penalty = 1
 Enemy_Penalty = 300
