@@ -13,4 +13,5 @@ def main():
     Enemy = Blob(color["red"], Size[0], Size[0]//15, 15)
     Food = Blob(color["green"], Size[0], Size[0]//15, 15)
 
-    
+    for episode in range(Episodes):
+        
