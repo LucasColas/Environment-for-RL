@@ -49,4 +49,5 @@ def main():
             else:
                 reward = -Move_Penalty
 
+            new_obs = (Player - Food, Player - Enemy)
             
