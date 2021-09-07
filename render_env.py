@@ -50,4 +50,7 @@ def main():
                 reward = -Move_Penalty
 
             new_obs = (Player - Food, Player - Enemy)
+            max_future_q = np.max(Q_table[new_obs])
+            current_q = Q_table[obs][action]
+
             
