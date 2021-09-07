@@ -69,5 +69,10 @@ def main():
             if show:
                 pass
 
+            Ep_rewards += reward
             if reward == Food_Reward or reward == -Enemy_Penalty:
                 break
+
+        Eps_rewards.append(Ep_rewards)
+        Eps *= Eps_Decay
+        
