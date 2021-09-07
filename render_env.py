@@ -53,4 +53,17 @@ def main():
             max_future_q = np.max(Q_table[new_obs])
             current_q = Q_table[obs][action]
 
+            if reward == Food_Reward:
+                new_q = Food_Reward
+
+            elif reward == -Enemy_Penalty:
+                new_q = -Enemy_Penalty
+
+            else:
+                new_q = (1 - Lr) * current_q + Lr * (reward + Discount * max_future_q)
+
+
+
+            Q_table[obs][action] = new_q
+
             
