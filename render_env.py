@@ -28,6 +28,7 @@ def main():
 
 
         for i in range(200):
+            reward = 0
             obs = (Player - Food, Player - Enemy)
 
             if np.random.random() > Eps:
@@ -40,4 +41,12 @@ def main():
 
 
             if Player.collide(Enemy.Rect):
-                pass
+                reward = -Enemy_Penalty
+
+            elif Player.collide(Food.Rect):
+                reward = Food_Reward
+
+            else:
+                reward = -Move_Penalty
+
+                
