@@ -66,4 +66,8 @@ def main():
 
             Q_table[obs][action] = new_q
 
-            
+            if show:
+                pass
+
+            if reward == Food_Reward or reward == -Enemy_Penalty:
+                break
