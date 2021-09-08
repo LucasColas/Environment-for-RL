@@ -77,4 +77,10 @@ def main():
         Eps *= Eps_Decay
 
     moving_avg = np.convolve(Eps_rewards, np.ones((100,)) / 100, mode="valid")
-    
+    plot(moving_avg)
+
+def plot(moving_avg):
+    plt.plot([i for i in range(len(moving_avg))], moving_avg)
+    plt.ylabel(f"reward {100}")
+    plt.xlabel("episode")
+    plt.show()
