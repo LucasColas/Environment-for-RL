@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 pygame.init()
 
 pygame.display.set_caption("Environnement")
-Win = pygame.display.set_mode(WIN_Size)
+
 
 
 class Blob:

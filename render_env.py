@@ -5,8 +5,10 @@ from Env_wpygame import *
 from Q_Learning import *
 
 
+
 def main():
     Size = (600,600)
+    Win = pygame.display.set_mode(Size)
 
     color = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
     Eps_rewards = []
@@ -62,12 +64,18 @@ def main():
             else:
                 new_q = (1 - Lr) * current_q + Lr * (reward + Discount * max_future_q)
 
-
-
             Q_table[obs][action] = new_q
 
             if show:
-                pass
+                Win.fill((0,0,0))
+                Enemy.draw(Win)
+                Food.draw(Win)
+                Player.draw(Win)
+
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        quit()
+
 
             Ep_rewards += reward
             if reward == Food_Reward or reward == -Enemy_Penalty:
