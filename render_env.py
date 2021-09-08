@@ -75,4 +75,6 @@ def main():
 
         Eps_rewards.append(Ep_rewards)
         Eps *= Eps_Decay
-        
+
+    moving_avg = np.convolve(Eps_rewards, np.ones((100,)) / 100, mode="valid")
+    
