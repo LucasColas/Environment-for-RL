@@ -1,6 +1,8 @@
 import pygame
 import matplotlib.pyplot as plt
 
+import numpy as np
+
 Episodes = 30000
 Move_Penalty = 1
 Enemy_Penalty = 300
@@ -15,7 +17,7 @@ Gamma = 0.95
 
 
 def create_Q_Table(Size):
-    
+
     Q_table = {}
     for x1 in range(0, Size[0]):
         for y1 in range(0, Size[1]):

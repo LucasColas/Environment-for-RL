@@ -12,6 +12,7 @@ Size = (600,600)
 def main(Size, colors):
 
     Win = pygame.display.set_mode(Size)
+    pygame.display.set_caption("Environnement")
 
     Eps_rewards = []
     show = False
@@ -19,6 +20,7 @@ def main(Size, colors):
     Q_table = create_Q_Table(Size)
 
     for episode in range(Episodes):
+        print(f"ep : {episode}")
         Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
         Enemy = Blob(colors["red"], Size[0], Size[0]//15, 15)
         Food = Blob(colors["green"], Size[0], Size[0]//15, 15)
@@ -71,7 +73,7 @@ def main(Size, colors):
             Q_table[obs][action] = new_q
 
             if show:
-                Win.fill((0,0,0))
+                Win.fill((0,120,0))
                 Enemy.draw(Win)
                 Food.draw(Win)
                 Player.draw(Win)

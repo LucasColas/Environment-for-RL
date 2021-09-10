@@ -3,10 +3,6 @@ import numpy as np
 
 import matplotlib.pyplot as plt
 
-pygame.init()
-
-pygame.display.set_caption("Environnement")
-
 
 
 class Blob:
