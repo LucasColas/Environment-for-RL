@@ -15,7 +15,6 @@ Lr = 0.1
 Gamma = 0.95
 
 
-
 def create_Q_Table(Size):
 
     Q_table = {}
