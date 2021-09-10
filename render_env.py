@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 
-from Env_wpygame import *
+from Env_wPygame import *
 from Q_Learning import *
 
 
@@ -20,10 +20,10 @@ def main():
         Food = Blob(color["green"], Size[0], Size[0]//15, 15)
         Ep_rewards = 0
 
-        if episode % 20 == 0:
-            print(f"ep : {episode})
+        if episode % 2 == 0:
+            print(f"ep : {episode}" )
             print(f"ep mean : {np.mean(Eps_rewards[-20:])}")
-            show =True
+            show = True
 
         else:
             show = False
