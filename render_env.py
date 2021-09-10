@@ -33,7 +33,7 @@ def main(Size, colors):
                 quit()
                 run = False
 
-        QLearning()
+        QLearning(Win, Episodes, Size,colors)
 
 
 
