@@ -4,20 +4,20 @@ pygame.init()
 from Env_wPygame import *
 from Q_Learning import *
 
+colors = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
 
 
-def main():
-    Size = (600,600)
+def main(Size, colors):
+
     Win = pygame.display.set_mode(Size)
 
-    color = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
     Eps_rewards = []
     show = False
 
     for episode in range(Episodes):
-        Player = Blob(color["blue"], Size[0], Size[0]//15, 15)
-        Enemy = Blob(color["red"], Size[0], Size[0]//15, 15)
-        Food = Blob(color["green"], Size[0], Size[0]//15, 15)
+        Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
+        Enemy = Blob(colors["red"], Size[0], Size[0]//15, 15)
+        Food = Blob(colors["green"], Size[0], Size[0]//15, 15)
         Ep_rewards = 0
 
         if episode % 2 == 0:
@@ -92,3 +92,7 @@ def plot(moving_avg):
     plt.ylabel(f"reward {100}")
     plt.xlabel("episode")
     plt.show()
+
+
+
+main(Size, colors)
