@@ -27,6 +27,11 @@ def create_Q_Table(Size):
 
     return Q_table
 
+def plot(moving_avg):
+    plt.plot([i for i in range(len(moving_avg))], moving_avg)
+    plt.ylabel(f"reward {100}")
+    plt.xlabel("episode")
+    plt.show()
 
 def QLearning():
 
