@@ -75,7 +75,7 @@ def main(Size, colors):
                 Enemy.draw(Win)
                 Food.draw(Win)
                 Player.draw(Win)
-                pygame.display.update()
+                pygame.display.flip()
 
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
