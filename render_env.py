@@ -8,91 +8,118 @@ colors = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
 
 Size = (600,600)
 
+Win = pygame.display.set_mode(Size)
+pygame.display.set_caption("Environnement")
+
+def test():
+    run = True
+    while run:
+        Win.fill((10,120,24))
+        pygame.display.flip()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+                run = False
 
 def main(Size, colors):
+    run = True
+    while run:
+        Win.fill((10,120,24))
+        pygame.display.flip()
 
-    Win = pygame.display.set_mode(Size)
-    pygame.display.set_caption("Environnement")
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                quit()
+                run = False
 
+    """
     Eps_rewards = []
     show = False
+    run = True
 
     Q_table = create_Q_Table(Size)
 
-    for episode in range(Episodes):
-        print(f"ep : {episode}")
-        Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
-        Enemy = Blob(colors["red"], Size[0], Size[0]//15, 15)
-        Food = Blob(colors["green"], Size[0], Size[0]//15, 15)
-        Ep_rewards = 0
-
-        if episode % 2 == 0:
-            print(f"ep : {episode}" )
-            print(f"ep mean : {np.mean(Eps_rewards[-20:])}")
-            show = True
-
-        else:
-            show = False
 
 
-        for i in range(200):
-            reward = 0
-            obs = (Player - Food, Player - Enemy)
 
-            if np.random.random() > Eps:
-                action = np.argmax(Q_table[obs])
+
+
+        for episode in range(Episodes):
+            print(f"ep : {episode}")
+            Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
+            Enemy = Blob(colors["red"], Size[0], Size[0]//15, 15)
+            Food = Blob(colors["green"], Size[0], Size[0]//15, 15)
+            Ep_rewards = 0
+
+            if episode % 2 == 0:
+                print(f"ep : {episode}" )
+                print(f"ep mean : {np.mean(Eps_rewards[-20:])}")
+                show = True
 
             else:
-                action = np.random.randint(0,4)
-
-            Player.action(action)
+                show = False
 
 
-            if Player.collide(Enemy.Rect):
-                reward = -Enemy_Penalty
+            for i in range(200):
+                reward = 0
+                obs = (Player - Food, Player - Enemy)
 
-            elif Player.collide(Food.Rect):
-                reward = Food_Reward
+                if np.random.random() > Eps:
+                    action = np.argmax(Q_table[obs])
 
-            else:
-                reward = -Move_Penalty
+                else:
+                    action = np.random.randint(0,4)
 
-            new_obs = (Player - Food, Player - Enemy)
-            max_future_q = np.max(Q_table[new_obs])
-            current_q = Q_table[obs][action]
+                Player.action(action)
 
-            if reward == Food_Reward:
-                new_q = Food_Reward
 
-            elif reward == -Enemy_Penalty:
-                new_q = -Enemy_Penalty
+                if Player.collide(Enemy.Rect):
+                    reward = -Enemy_Penalty
 
-            else:
-                new_q = (1 - Lr) * current_q + Lr * (reward + Discount * max_future_q)
+                elif Player.collide(Food.Rect):
+                    reward = Food_Reward
 
-            Q_table[obs][action] = new_q
+                else:
+                    reward = -Move_Penalty
 
-            if show:
-                Win.fill((0,120,0))
+                new_obs = (Player - Food, Player - Enemy)
+                max_future_q = np.max(Q_table[new_obs])
+                current_q = Q_table[obs][action]
+
+                if reward == Food_Reward:
+                    new_q = Food_Reward
+
+                elif reward == -Enemy_Penalty:
+                    new_q = -Enemy_Penalty
+
+                else:
+                    new_q = (1 - Lr) * current_q + Lr * (reward + Discount * max_future_q)
+
+                Q_table[obs][action] = new_q
+
+                if show:
+                    pass
+
+
                 Enemy.draw(Win)
                 Food.draw(Win)
                 Player.draw(Win)
                 pygame.display.flip()
 
-                for event in pygame.event.get():
-                    if event.type == pygame.QUIT:
-                        quit()
 
 
-            Ep_rewards += reward
-            if reward == Food_Reward or reward == -Enemy_Penalty:
-                break
+                Ep_rewards += reward
+                if reward == Food_Reward or reward == -Enemy_Penalty:
+                    break
 
-        Eps_rewards.append(Ep_rewards)
-        Eps *= Eps_Decay
+            Eps_rewards.append(Ep_rewards)
+            Eps *= Eps_Decay
 
-    moving_avg = np.convolve(Eps_rewards, np.ones((100,)) / 100, mode="valid")
-    plot(moving_avg)
+        moving_avg = np.convolve(Eps_rewards, np.ones((100,)) / 100, mode="valid")
+        plot(moving_avg)
+
+    """
 
 def plot(moving_avg):
     plt.plot([i for i in range(len(moving_avg))], moving_avg)
@@ -103,3 +130,4 @@ def plot(moving_avg):
 
 
 main(Size, colors)
+#test()
