@@ -9,15 +9,18 @@ Eps = 0.95
 Eps_Decay = 0.9998
 Eps_Decay_Reduc = 0.0001
 
-Size = (600,600)
-
 Lr = 0.1
 Gamma = 0.95
 
-Q_table = {}
 
-for x1 in range(0, Size[0]):
-    for y1 in range(0, Size[1]):
-        for x2 in range(0, Size[0]):
-            for y2 in range(0, Size[1]):
-                Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
+
+def create_Q_Table(Size):
+    
+    Q_table = {}
+    for x1 in range(0, Size[0]):
+        for y1 in range(0, Size[1]):
+            for x2 in range(0, Size[0]):
+                for y2 in range(0, Size[1]):
+                    Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
+
+    return Q_table

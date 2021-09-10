@@ -6,6 +6,8 @@ from Q_Learning import *
 
 colors = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
 
+Size = (600,600)
+
 
 def main(Size, colors):
 
@@ -13,6 +15,8 @@ def main(Size, colors):
 
     Eps_rewards = []
     show = False
+
+    Q_table = create_Q_Table(Size)
 
     for episode in range(Episodes):
         Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
