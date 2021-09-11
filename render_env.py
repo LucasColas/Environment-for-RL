@@ -22,9 +22,13 @@ def test():
                 quit()
                 run = False
 
-def main(Size, colors):
+def update_win():
+    pygame.display.update()
+
+def main(Win, Size, colors):
     run = True
     while run:
+        """
         Win.fill((10,120,24))
         pygame.display.flip()
 
@@ -32,10 +36,10 @@ def main(Size, colors):
             if event.type == pygame.QUIT:
                 quit()
                 run = False
-
+        """
         QLearning(Win, Episodes, Size, colors)
 
 
 
-main(Size, colors)
+main(Win, Size, colors)
 #test()

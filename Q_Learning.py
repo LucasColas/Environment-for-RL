@@ -66,7 +66,13 @@ def QLearning(Win, Episodes, Size, colors):
             else:
                 action = np.random.randint(0,4)
 
+            """
             Player.action(action)
+            Enemy.draw(Win)
+            Food.draw(Win)
+            Player.draw(Win)
+            pygame.display.update()
+            """
 
 
             if Player.collide(Enemy.Rect):
@@ -97,10 +103,7 @@ def QLearning(Win, Episodes, Size, colors):
                 pass
 
 
-            Enemy.draw(Win)
-            Food.draw(Win)
-            Player.draw(Win)
-            pygame.display.flip()
+
 
 
 
