@@ -14,6 +14,12 @@ Eps_Decay_Reduc = 0.0001
 Lr = 0.1
 Gamma = 0.95
 
+#TODO : binning
+
+def binning(Size, numsamples):
+    Width_chunk = np.linspace(0, Size[0], numsamples)
+    Height_chunk = np.linspace(0, Size[1], numsamples)
+    
 
 def create_Q_Table(Size):
     print("Creating Q_Table")
