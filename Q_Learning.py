@@ -16,14 +16,18 @@ Gamma = 0.95
 
 
 def create_Q_Table(Size):
-
+    print("Creating Q_Table")
     Q_table = {}
     for x1 in range(0, Size[0]):
+        print(x1)
         for y1 in range(0, Size[1]):
+            print(x1, y1)
             for x2 in range(0, Size[0]):
                 for y2 in range(0, Size[1]):
+                    print(x1, y1, x2, y2)
                     Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
 
+    print("Q_Table created")
     return Q_table
 
 def plot(moving_avg):
@@ -32,14 +36,14 @@ def plot(moving_avg):
     plt.xlabel("episode")
     plt.show()
 
-def QLearning(Win, Episodes, Size, colors):
-
+def QLearning(Episodes, Size, colors):
+    print("Initializing QLearning")
     Eps_rewards = []
     show = False
     run = True
 
     Q_table = create_Q_Table(Size)
-
+    print("launching QLearning")
     for episode in range(Episodes):
         print(f"ep : {episode}")
         Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
@@ -101,11 +105,6 @@ def QLearning(Win, Episodes, Size, colors):
 
             if show:
                 pass
-
-
-
-
-
 
             Ep_rewards += reward
             if reward == Food_Reward or reward == -Enemy_Penalty:
