@@ -34,12 +34,12 @@ def get_discrete_state(sate, binning):
 def create_Q_Table(Width_chunk, Height_chunk):
     print("Creating Q_Table")
     Q_table = {}
-    for x1 in range(0, Width_chunk):
+    for x1 in range(0, len(Width_chunk)):
         print(x1)
-        for y1 in range(0, Height_chunk):
+        for y1 in range(0, len(Height_chunk)):
             print(x1, y1)
-            for x2 in range(0, Width_chunk):
-                for y2 in range(0, Height_chunk):
+            for x2 in range(0, len(Width_chunk)):
+                for y2 in range(0, len(Height_chunk)):
                     print(x1, y1, x2, y2)
                     Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
 
@@ -52,13 +52,13 @@ def plot(moving_avg):
     plt.xlabel("episode")
     plt.show()
 
-def QLearning(Episodes, Size, colors):
+def QLearning(Episodes, Size, Width_chunk, Height_chunk):
     print("Initializing QLearning")
     Eps_rewards = []
     show = False
     run = True
 
-    Q_table = create_Q_Table(Size)
+    Q_table = create_Q_Table(Width_chunk, Height_chunk)
     print("launching QLearning")
     for episode in range(Episodes):
         print(f"ep : {episode}")
