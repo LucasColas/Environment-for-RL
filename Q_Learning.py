@@ -19,7 +19,16 @@ Gamma = 0.95
 def binning(Size, numsamples):
     Width_chunk = np.linspace(0, Size[0], numsamples)
     Height_chunk = np.linspace(0, Size[1], numsamples)
-    
+
+    return Width_chunk, Height_chunk
+
+
+def get_discrete_state(sate, binning):
+    x_dis = np.digitize(state[0], binning[0])
+    y_dis = np.digitize(state[1], binning[1])
+
+    return x_dis, y_dis
+
 
 def create_Q_Table(Size):
     print("Creating Q_Table")
