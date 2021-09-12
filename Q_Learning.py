@@ -30,6 +30,7 @@ def get_discrete_state(sate, binning):
     return x_dis, y_dis
 
 
+
 def create_Q_Table(Size):
     print("Creating Q_Table")
     Q_table = {}
