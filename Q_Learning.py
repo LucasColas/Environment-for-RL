@@ -50,14 +50,12 @@ def plot(moving_avg):
     plt.xlabel("episode")
     plt.show()
 
-def QLearning(Episodes, Size, Width_chunk, Height_chunk):
+def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
     print("Initializing QLearning")
     Eps_rewards = []
     show = False
     run = True
 
-    Q_table = create_Q_Table(Width_chunk, Height_chunk)
-    print("launching QLearning")
     for episode in range(Episodes):
         print(f"ep : {episode}")
         Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
@@ -84,13 +82,13 @@ def QLearning(Episodes, Size, Width_chunk, Height_chunk):
             else:
                 action = np.random.randint(0,4)
 
-            """
+
             Player.action(action)
             Enemy.draw(Win)
             Food.draw(Win)
             Player.draw(Win)
             pygame.display.update()
-            """
+
 
 
             if Player.collide(Enemy.Rect):
