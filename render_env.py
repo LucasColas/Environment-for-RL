@@ -17,7 +17,9 @@ def update_win():
 def main(Size, colors):
     run = True
     print("main")
-    QLearning(Episodes, Size, colors)
+    Width_chunk, Height_chunk = binning(Size,40)
+    Q_Table = create_Q_Table()
+    QLearning(Episodes, Size, colors, Width_chunk, Height_chunk)
 
 
 
