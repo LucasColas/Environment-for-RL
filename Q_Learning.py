@@ -14,7 +14,6 @@ Eps_Decay_Reduc = 0.0001
 Lr = 0.1
 Gamma = 0.95
 
-#TODO : binning
 
 def binning(Size, numsamples):
     Width_chunk = np.linspace(0, Size[0], numsamples)
@@ -24,13 +23,14 @@ def binning(Size, numsamples):
 
 
 def get_discrete_state(state, binning):
+    #TODO : must return a tuple
     state_dis = np.digitize(state[0], binning[0])
 
     return state_dis
 
 
 
-def create_Q_Table(Width_chunk, Height_chunk):
+def create_Q_Table(Width_chunk, Height_chunk,actions):
     print("Creating Q_Table")
     Q_table = {}
     for x1 in range(0, len(Width_chunk)):
@@ -38,7 +38,8 @@ def create_Q_Table(Width_chunk, Height_chunk):
 
             for x2 in range(0, len(Width_chunk)):
                 for y2 in range(0, len(Height_chunk)):
-                    Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
+                    for action in range(actions)::
+                        Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
 
     print("Q_Table created")
     return Q_table
