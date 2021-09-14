@@ -34,7 +34,6 @@ def get_discrete_state(sate, binning):
 def create_Q_Table(Width_chunk, Height_chunk):
     print("Creating Q_Table")
     Q_table = {}
-    
     for x1 in range(0, len(Width_chunk)):
         for y1 in range(0, len(Height_chunk)):
 
