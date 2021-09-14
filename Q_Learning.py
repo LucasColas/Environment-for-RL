@@ -23,7 +23,7 @@ def binning(Size, numsamples):
     return Width_chunk, Height_chunk
 
 
-def get_discrete_state(sate, binning):
+def get_discrete_state(state, binning):
     state_dis = np.digitize(state[0], binning[0])
 
     return state_dis
@@ -81,14 +81,11 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
             else:
                 action = np.random.randint(0,4)
 
-
             Player.action(action)
             Enemy.draw(Win)
             Food.draw(Win)
             Player.draw(Win)
             pygame.display.update()
-
-
 
             if Player.collide(Enemy.Rect):
                 reward = -Enemy_Penalty
