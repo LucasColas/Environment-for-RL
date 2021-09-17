@@ -23,7 +23,7 @@ def binning(Size, numsamples):
 
 
 def get_discrete_state(state, binning):
-    #TODO : must return a tuple
+
     x1_dis = np.digitize(state[0], binning[0])
     y1_dis = np.digitize(state[1], binning[1])
     x2_dis = np.digitize(state[2], binning[0])
@@ -39,7 +39,6 @@ def create_Q_Table(Width_chunk, Height_chunk,actions):
     Q_table = {}
     for x1 in range(0, len(Width_chunk)):
         for y1 in range(0, len(Height_chunk)):
-
             for x2 in range(0, len(Width_chunk)):
                 for y2 in range(0, len(Height_chunk)):
                     for action in range(actions)::
@@ -78,6 +77,7 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
         for i in range(200):
             reward = 0
             obs = (Player - Food, Player - Enemy)
+            obs_dis = get_discrete_state(obs, (Width_chunk, Height_chunk))
 
             if np.random.random() > Eps:
                 action = np.argmax(Q_table[obs])
