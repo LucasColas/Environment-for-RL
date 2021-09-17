@@ -50,12 +50,11 @@ def create_Q_Table(Width_chunk, Height_chunk,actions):
 
 def plot(moving_avg):
     plt.plot([i for i in range(len(moving_avg))], moving_avg)
-    plt.ylabel(f"reward {100}")
+    plt.ylabel("reward")
     plt.xlabel("episode")
     plt.show()
 
 def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
-    print("Initializing QLearning")
     Eps_rewards = []
     show = False
     run = True
