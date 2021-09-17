@@ -80,7 +80,7 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
             obs_dis = get_discrete_state(obs, (Width_chunk, Height_chunk))
 
             if np.random.random() > Eps:
-                action = np.argmax(Q_table[obs])
+                action = np.argmax(Q_table[obs_dis])
 
             else:
                 action = np.random.randint(0,4)
@@ -101,6 +101,7 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
                 reward = -Move_Penalty
 
             new_obs = (Player - Food, Player - Enemy)
+            new_obs_dis = get_discrete_state(new_obs, (Width_chunk, Height_chunk))
             max_future_q = np.max(Q_table[new_obs])
             current_q = Q_table[obs][action]
 
