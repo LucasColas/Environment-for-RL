@@ -73,7 +73,6 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
         else:
             show = False
 
-
         for i in range(200):
             reward = 0
             obs = (Player - Food, Player - Enemy)
@@ -102,7 +101,7 @@ def QLearning(Q_table, Episodes, Size, Width_chunk, Height_chunk):
 
             new_obs = (Player - Food, Player - Enemy)
             new_obs_dis = get_discrete_state(new_obs, (Width_chunk, Height_chunk))
-            max_future_q = np.max(Q_table[new_obs])
+            max_future_q = np.max(Q_table[new_obs_dis])
             current_q = Q_table[obs][action]
 
             if reward == Food_Reward:
