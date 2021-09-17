@@ -24,7 +24,11 @@ def binning(Size, numsamples):
 
 def get_discrete_state(state, binning):
     #TODO : must return a tuple
-    state_dis = np.digitize(state[0], binning[0])
+    x1_dis = np.digitize(state[0], binning[0])
+    y1_dis = np.digitize(state[1], binning[1])
+    x2_dis = np.digitize(state[2], binning[2])
+    y2_dis = np.digitize(state[1], binning[3])
+
 
     return state_dis
 
