@@ -58,6 +58,7 @@ def QLearning(Win, Q_table, Episodes, Size, Width_chunk, Height_chunk, launched)
     Eps_rewards = []
     show = False
     run = True
+    Win.fill((40, 120, 40))
 
     for episode in range(Episodes):
         print(f"ep : {episode}")
