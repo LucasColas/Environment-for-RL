@@ -24,13 +24,13 @@ def binning(Size, numsamples):
 
 
 def get_discrete_state(state, binning):
-
+    print("state : ", state)
     x1_dis = np.digitize(state[0][0], binning[0])
     y1_dis = np.digitize(state[0][1], binning[1])
     x2_dis = np.digitize(state[1][0], binning[0])
     y2_dis = np.digitize(state[1][1], binning[1])
 
-
+    print("state dis : ", state)
     return ((x1_dis, y1_dis), (x2_dis, y2_dis))
 
 
