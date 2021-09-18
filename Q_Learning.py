@@ -98,6 +98,10 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             else:
                 action = np.random.randint(0,4)
 
+            Win.fill((40, 120, 40))
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    quit()
             Player.action(action)
             Enemy.draw(Win)
             Food.draw(Win)
