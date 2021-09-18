@@ -25,7 +25,7 @@ def main(Win, Size, colors):
             if event.type == pygame.QUIT:
                 run = False
                 quit()
-                
+
         if not launched:
             QLearning(Win, Q_Table, Episodes, Size, colors, Width_chunk, Height_chunk, launched)
 

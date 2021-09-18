@@ -52,7 +52,7 @@ def plot(moving_avg):
     plt.xlabel("episode")
     plt.show()
 
-def QLearning(Win, Q_table, Episodes, Size, Width_chunk, Height_chunk, launched):
+def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, launched):
     if launched:
         return
     Eps_rewards = []
