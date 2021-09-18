@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from Env_wPygame import Blob
 
 import numpy as np
+import time
 
 Episodes = 30000
 Move_Penalty = 1
@@ -131,6 +132,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
                     if event.type == pygame.QUIT:
                         quit()
                 Player.action(action)
+                time.sleep(0.1)
                 Enemy.draw(Win)
                 Food.draw(Win)
                 Player.draw(Win)
