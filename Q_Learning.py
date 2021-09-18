@@ -25,10 +25,10 @@ def binning(Size, numsamples):
 
 def get_discrete_state(state, binning):
 
-    x1_dis = np.digitize(state[0], binning[0])
-    y1_dis = np.digitize(state[1], binning[1])
-    x2_dis = np.digitize(state[2], binning[0])
-    y2_dis = np.digitize(state[1], binning[1])
+    x1_dis = np.digitize(state[0][0], binning[0])
+    y1_dis = np.digitize(state[0][1], binning[1])
+    x2_dis = np.digitize(state[1][0], binning[0])
+    y2_dis = np.digitize(state[1][1], binning[1])
 
 
     return (x1_dis, y1_dis, x2_dis, y2_dis)
@@ -80,6 +80,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
         for i in range(200):
             reward = 0
             obs = (Player - Food, Player - Enemy)
+            print(obs)
             obs_dis = get_discrete_state(obs, (Width_chunk, Height_chunk))
 
             if np.random.random() > Eps:
