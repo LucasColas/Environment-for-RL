@@ -17,8 +17,8 @@ Gamma = 0.95
 
 
 def binning(Size, numsamples):
-    Width_chunk = np.linspace(0, Size[0], numsamples)
-    Height_chunk = np.linspace(0, Size[1], numsamples)
+    Width_chunk = np.linspace(-Size[0], Size[0], numsamples)
+    Height_chunk = np.linspace(-Size[1], Size[1], numsamples)
 
     return Width_chunk, Height_chunk
 
@@ -116,7 +116,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             new_obs = (Player - Food, Player - Enemy)
             new_obs_dis = get_discrete_state(new_obs, (Width_chunk, Height_chunk))
             max_future_q = np.max(Q_table[new_obs_dis])
-            current_q = Q_table[obs][action]
+            current_q = Q_table[obs_dis][action]
 
             if reward == Food_Reward:
                 new_q = Food_Reward
@@ -125,7 +125,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
                 new_q = -Enemy_Penalty
 
             else:
-                new_q = (1 - Lr) * current_q + Lr * (reward + Discount * max_future_q)
+                new_q = (1 - Lr) * current_q + Lr * (reward + Gamma * max_future_q)
 
             Q_table[obs][action] = new_q
 
