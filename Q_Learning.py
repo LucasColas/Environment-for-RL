@@ -89,7 +89,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
         for i in range(200):
             reward = 0
             obs = (Player - Food, Player - Enemy)
-            print(obs)
+
             obs_dis = get_discrete_state(obs, (Width_chunk, Height_chunk))
 
             if np.random.random() > Eps:
