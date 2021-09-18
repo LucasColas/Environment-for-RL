@@ -24,13 +24,13 @@ def binning(Size, numsamples):
 
 
 def get_discrete_state(state, binning):
-    print("state : ", state)
+
     x1_dis = np.digitize(state[0][0], binning[0])
     y1_dis = np.digitize(state[0][1], binning[1])
     x2_dis = np.digitize(state[1][0], binning[0])
     y2_dis = np.digitize(state[1][1], binning[1])
 
-    print("state dis : ", x1_dis, y1_dis, x2_dis, y2_dis)
+
     return ((x1_dis, y1_dis), (x2_dis, y2_dis))
 
 
@@ -78,7 +78,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
         Food = Blob(colors["green"], Size, Size[0]//15, 15)
         Ep_rewards = 0
 
-        if episode % 2 == 0:
+        if episode % 20 == 0:
             print(f"ep : {episode}" )
             print(f"ep mean : {np.mean(Eps_rewards[-20:])}")
             show = True
@@ -98,15 +98,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             else:
                 action = np.random.randint(0,4)
 
-            Win.fill((40, 120, 40))
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    quit()
-            Player.action(action)
-            Enemy.draw(Win)
-            Food.draw(Win)
-            Player.draw(Win)
-            pygame.display.update()
+
 
             if Player.collide(Enemy.Rect):
                 reward = -Enemy_Penalty
@@ -134,7 +126,15 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             Q_table[obs_dis][action] = new_q
 
             if show:
-                pass
+                Win.fill((40, 120, 40))
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        quit()
+                Player.action(action)
+                Enemy.draw(Win)
+                Food.draw(Win)
+                Player.draw(Win)
+                pygame.display.update()
 
             Ep_rewards += reward
             if reward == Food_Reward or reward == -Enemy_Penalty:
