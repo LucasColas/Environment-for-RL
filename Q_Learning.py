@@ -60,12 +60,13 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
     show = False
     run = True
     Win.fill((40, 120, 40))
+    print(Size[0])
 
     for episode in range(Episodes):
         print(f"ep : {episode}")
-        Player = Blob(colors["blue"], Size[0], Size[0]//15, 15)
-        Enemy = Blob(colors["red"], Size[0], Size[0]//15, 15)
-        Food = Blob(colors["green"], Size[0], Size[0]//15, 15)
+        Player = Blob(colors["blue"], Size, Size[0]//15, 15)
+        Enemy = Blob(colors["red"], Size, Size[0]//15, 15)
+        Food = Blob(colors["green"], Size, Size[0]//15, 15)
         Ep_rewards = 0
 
         if episode % 2 == 0:

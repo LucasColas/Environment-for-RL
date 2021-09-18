@@ -1,7 +1,7 @@
 import pygame
 pygame.init()
 
-from Env_wPygame import *
+from Env_wPygame import Blob
 from Q_Learning import *
 
 colors = {"blue": (20, 81, 232), "red": (238, 34, 24), "green":( 0, 252, 8)}
