@@ -1,5 +1,6 @@
 import pygame
 import matplotlib.pyplot as plt
+from Env_wPygame import Blob
 
 import numpy as np
 
