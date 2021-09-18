@@ -30,7 +30,7 @@ def get_discrete_state(state, binning):
     x2_dis = np.digitize(state[1][0], binning[0])
     y2_dis = np.digitize(state[1][1], binning[1])
 
-    print("state dis : ", state)
+    print("state dis : ", x1_dis, y1_dis, x2_dis, y2_dis)
     return ((x1_dis, y1_dis), (x2_dis, y2_dis))
 
 
