@@ -17,7 +17,7 @@ def update_win():
 def main(Win, Size, colors):
     run = True
     Width_chunk, Height_chunk = binning(Size, 20)
-    #Q_Table = create_Q_Table(Width_chunk, Height_chunk)
+    Q_Table = create_Q_Table(Width_chunk, Height_chunk)
     launched = False
     #QLearning(Win, Q_Table, Episodes, Size, colors, Width_chunk, Height_chunk, launched)
     while run:
@@ -25,8 +25,11 @@ def main(Win, Size, colors):
             if event.type == pygame.QUIT:
                 run = False
                 quit()
+                
+        if not launched:
+            QLearning(Win, Q_Table, Episodes, Size, colors, Width_chunk, Height_chunk, launched)
 
-        
+        launched = True
 
 
 
