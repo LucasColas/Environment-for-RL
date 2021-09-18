@@ -57,6 +57,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
     #TODO : function that returns a tuple with all parameters for the Q-Q_Learning
     if launched:
         return
+        
     Eps_rewards = []
     Move_Penalty = 1
     Enemy_Penalty = 300
@@ -68,9 +69,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
     Lr = 0.1
     Gamma = 0.95
     show = False
-    run = True
     Win.fill((40, 120, 40))
-    print(Size[0])
 
     for episode in range(Episodes):
         print(f"ep : {episode}")
