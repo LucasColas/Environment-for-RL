@@ -31,7 +31,7 @@ def get_discrete_state(state, binning):
     y2_dis = np.digitize(state[1][1], binning[1])
 
 
-    return (x1_dis, y1_dis, x2_dis, y2_dis)
+    return ((x1_dis, y1_dis), (x2_dis, y2_dis))
 
 
 
@@ -57,7 +57,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
     #TODO : function that returns a tuple with all parameters for the Q-Q_Learning
     if launched:
         return
-        
+
     Eps_rewards = []
     Move_Penalty = 1
     Enemy_Penalty = 300
