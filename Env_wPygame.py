@@ -9,6 +9,7 @@ class Blob:
     def __init__(self, Color, Size, Step, Length):
         self.Size_x = Size[0]
         self.Size_y = Size[1]
+        self.color = Color
         self.Step = Step
         self.Length = Length
         self.x = np.random.randint(0, self.Size_x)
