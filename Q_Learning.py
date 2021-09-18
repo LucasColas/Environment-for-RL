@@ -54,9 +54,19 @@ def plot(moving_avg):
     plt.show()
 
 def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, launched):
+    #TODO : function that returns a tuple with all parameters for the Q-Q_Learning
     if launched:
         return
     Eps_rewards = []
+    Move_Penalty = 1
+    Enemy_Penalty = 300
+    Food_Reward = 30
+    Eps = 0.95
+    Eps_Decay = 0.9998
+    Eps_Decay_Reduc = 0.0001
+
+    Lr = 0.1
+    Gamma = 0.95
     show = False
     run = True
     Win.fill((40, 120, 40))
