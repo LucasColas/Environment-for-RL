@@ -16,9 +16,6 @@ def update_win():
 
 def main(Win, Size, colors):
     run = True
-    print("main")
-    Width_chunk, Height_chunk = binning(Size,40)
-    actions = [0,1,2,3]
     Width_chunk, Height_chunk = binning(Size, 15)
     Q_Table = create_Q_Table(Width_chunk, Height_chunk)
     launched = False
