@@ -78,5 +78,4 @@ class Blob:
 
 
     def draw(self, Win):
-        print("draw")
         pygame.draw.rect(Win, self.color, self.Rect)

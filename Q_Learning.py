@@ -72,7 +72,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
     Win.fill((40, 120, 40))
 
     for episode in range(Episodes):
-        print(f"ep : {episode}")
+        #print(f"ep : {episode}")
         Player = Blob(colors["blue"], Size, Size[0]//15, 15)
         Enemy = Blob(colors["red"], Size, Size[0]//15, 15)
         Food = Blob(colors["green"], Size, Size[0]//15, 15)
