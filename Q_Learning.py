@@ -127,7 +127,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             else:
                 new_q = (1 - Lr) * current_q + Lr * (reward + Gamma * max_future_q)
 
-            Q_table[obs][action] = new_q
+            Q_table[obs_dis][action] = new_q
 
             if show:
                 pass
