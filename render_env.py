@@ -10,9 +10,10 @@ Size = (600,600)
 
 Win = pygame.display.set_mode(Size)
 #pygame.display.set_caption("Environnement")
-
+"""
 def update_win():
     pygame.display.update()
+"""
 
 def main(Win, Size, colors):
     run = True
@@ -36,4 +37,3 @@ def main(Win, Size, colors):
 
 
 main(Win, Size, colors)
-#test()

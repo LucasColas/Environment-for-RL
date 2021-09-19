@@ -23,7 +23,8 @@ def binning(Size, numsamples):
 
     return Width_chunk, Height_chunk
 
-
+#(player-food, player-Enemy)
+#((x1,y1), (x2,y2))
 def get_discrete_state(state, binning):
 
     x1_dis = np.digitize(state[0][0], binning[0])
@@ -45,6 +46,7 @@ def create_Q_Table(Width_chunk, Height_chunk):
                 for y2 in range(-len(Height_chunk)+1, len(Height_chunk)):
                     Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
 
+
     print("Q_Table created")
     return Q_table
 
@@ -55,7 +57,7 @@ def plot(moving_avg):
     plt.show()
 
 def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, launched):
-    #TODO : function that returns a tuple with all parameters for the Q-Q_Learning
+
     if launched:
         return
 
@@ -99,6 +101,8 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
             else:
                 action = np.random.randint(0,4)
 
+            Player.action(action)
+
 
 
             if Player.collide(Enemy.Rect):
@@ -131,7 +135,7 @@ def QLearning(Win, Q_table, Episodes, Size, colors, Width_chunk, Height_chunk, l
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         quit()
-                Player.action(action)
+                #Player.action(action)
                 time.sleep(0.1)
                 Enemy.draw(Win)
                 Food.draw(Win)
