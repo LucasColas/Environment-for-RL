@@ -40,10 +40,10 @@ def get_discrete_state(state, binning):
 def create_Q_Table(Width_chunk, Height_chunk):
     print("Creating Q_Table")
     Q_table = {}
-    for x1 in range(-len(Width_chunk)+1, len(Width_chunk)):
-        for y1 in range(-len(Height_chunk)+1, len(Height_chunk)):
-            for x2 in range(-len(Width_chunk)+1, len(Width_chunk)):
-                for y2 in range(-len(Height_chunk)+1, len(Height_chunk)):
+    for x1 in range(-len(Width_chunk)+1, len(Width_chunk)+1):
+        for y1 in range(-len(Height_chunk)+1, len(Height_chunk)+1):
+            for x2 in range(-len(Width_chunk)+1, len(Width_chunk)+1):
+                for y2 in range(-len(Height_chunk)+1, len(Height_chunk)+1):
                     Q_table[((x1, y1), (x2, y2))] = [np.random.uniform(-5,0) for i in range(4)]
 
 
