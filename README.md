@@ -1,10 +1,7 @@
-# New fun environnement to enjoy Reinforcement Learning
+# New fun environment to enjoy Reinforcement Learning
 
 New ! 
-I created a new environnement where you can use RL algorithms. 
-
-I'm still working on it... 
-But you can use it. 
+I created a new environment where you can use RL algorithms. 
 
 I made this environnement for engineers and searchers. 
 This environnement is based on Blob :
