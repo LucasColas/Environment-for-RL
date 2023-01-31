@@ -1,4 +1,4 @@
-# New fun environment to enjoy Reinforcement Learning
+# New fun environment to use for Reinforcement Learning
 
 New ! 
 I created a new environment where you can use RL algorithms. 
